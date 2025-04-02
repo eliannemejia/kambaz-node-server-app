@@ -15,7 +15,10 @@ export function unenrollUserFromCourse(userId, courseId) {
     const { enrollments } = Database;
     console.log(enrollments);
     console.log("COURSE ID: ", courseId);
-    Database.enrollments = enrollments.filter(
-        (enrollment) => !(enrollment.user === userId && enrollment.course === courseId)
-    );
+    const index = enrollments.findIndex((e) => e.user === userId && e.course === courseId);
+    
+    enrollments.splice(index, 1);
+    // Database.enrollments = enrollments.filter(
+    //     (enrollment) => !(enrollment.user === userId && enrollment.course === courseId)
+    // );
 }
