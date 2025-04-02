@@ -13,6 +13,8 @@ export default function CourseRoutes(app) {
         let { userId } = req.params;
         if (userId === "current") {
             const currentUser = req.session["currentUser"];
+            console.log(req.session);
+            console.log(currentUser);
             if (!currentUser) {
                 res.sendStatus(401);
                 return;
